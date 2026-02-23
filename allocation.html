@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Allocation — Fertilizer Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./components/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="./components/header/header.css" />
+    <link rel="stylesheet" href="./styles/allocation.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside id="sidebar-root"></aside>
+      <main class="main-area">
+        <header id="header-root"></header>
+        <section class="alloc-page" aria-label="Fertilizer allocation">
+          <div class="alloc-surface">
+            <div class="alloc-top">
+              <div class="alloc-tabs" aria-label="Allocation sections" role="tablist">
+                <button
+                  class="alloc-tab"
+                  data-tab="purchased"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  Total Purchased
+                </button>
+                <button class="alloc-tab" data-tab="rdistn" type="button" role="tab">
+                  R-Distn
+                </button>
+                <button class="alloc-tab" data-tab="calc" type="button" role="tab">
+                  CALC
+                </button>
+                <button class="alloc-tab" data-tab="season" type="button" role="tab">
+                  SEASON
+                </button>
+              </div>
+            </div>
+
+            <section class="alloc-instructions" aria-label="Instructions">
+              <div class="inst-card">
+                <div class="inst-title">Fertilizer Allocation System</div>
+                <div class="inst-body">
+                  <div class="inst-section">
+                    <div class="inst-head">1. Total Amount Purchased</div>
+                    <div class="inst-text">
+                      Here define the total amount of fertilizer to be allocated. Here
+                      the total amount of each fertilizer should be defined for the year
+                      selected. And this is the base for further allocation.
+                    </div>
+                  </div>
+                  <div class="inst-section">
+                    <div class="inst-head">2. R-Distn</div>
+                    <div class="inst-text">
+                      This button is used to set ratio of each fertilizer type to be
+                      allocated to regions. The system helps in calculating the ratio, so
+                      that it will be easy to proportionally allocate to each region.
+                    </div>
+                  </div>
+                  <div class="inst-section">
+                    <div class="inst-head">3. Season</div>
+                    <div class="inst-text">
+                      Here the fertilizer allocation is made to each region to the
+                      different cropping seasons, viz. rainy season, belg season and
+                      irrigation season.
+                    </div>
+                  </div>
+                  <div class="inst-section">
+                    <div class="inst-head">4. Calc</div>
+                    <div class="inst-text">
+                      This button is used to calculate the regional fertilizer
+                      distribution. To know the allocated amount to each region based on
+                      the previously fixed ratio, clicking the light green buttons labeled
+                      with each cropping seasons is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="alloc-views" aria-label="Allocation view">
+              <div class="alloc-view" data-view="purchased">
+                <div class="purchased-stack">
+                  <div class="sub-card sub-card-narrow">
+                    <div class="sub-title green">Total Amount Purchased</div>
+                    <form class="sub-form" id="purchasedForm" novalidate>
+                      <select id="pYear" aria-label="Select the year">
+                        <option value="">Select the year</option>
+                        <option>2017/18</option>
+                        <option>2018/19</option>
+                        <option>2019/20</option>
+                        <option>2020/21</option>
+                      </select>
+
+                      <select id="pType" aria-label="Select Fertilizer Type">
+                        <option value="">Select Fertilizer Type</option>
+                        <option>UREA</option>
+                        <option>DAP</option>
+                      </select>
+
+                      <input
+                        id="pAmount"
+                        type="number"
+                        min="0"
+                        inputmode="decimal"
+                        placeholder="Amount in ton"
+                        aria-label="Amount in ton"
+                      />
+
+                      <button class="submit-btn" type="submit">SUBMIT</button>
+                    </form>
+                  </div>
+
+                  <div class="sub-card sub-card-wide" aria-label="Purchase table">
+                    <table class="alloc-table">
+                      <thead>
+                        <tr>
+                          <th>SN</th>
+                          <th>Year</th>
+                          <th>Fert type</th>
+                          <th>Total Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>2017/18</td>
+                          <td>UREA</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>2017/18</td>
+                          <td>DAP</td>
+                          <td>5000</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>2017/18</td>
+                          <td>DAP</td>
+                          <td>5000</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>2017/18</td>
+                          <td>DAP</td>
+                          <td>5000</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>2017/18</td>
+                          <td>DAP</td>
+                          <td>5000</td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>2017/18</td>
+                          <td>DAP</td>
+                          <td>5000</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="alloc-view" data-view="rdistn">
+                <div class="sub-card sub-card-narrow">
+                  <div class="sub-title green">Regional distribution proportion</div>
+                  <div class="rdistn-head">
+                    <select id="rYear" aria-label="Select the year">
+                      <option value="">Select the year</option>
+                      <option>2017/18</option>
+                      <option>2018/19</option>
+                      <option>2019/20</option>
+                      <option>2020/21</option>
+                    </select>
+                    <div class="rdistn-pill" aria-label="Fertilizer type">UREA</div>
+                  </div>
+
+                  <div class="distn-list" aria-label="Regional distribution rows">
+                    <div class="distn-row"><div class="distn-name">Addis Ababa</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">Afar</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">Amhara</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">Benishangul-Gumuz</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">Central Ethiopia</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">EABC</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">Gambella</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">Oromia</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">Sidama</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">Somali</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">South Ethiopia</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">South West Ethiopia</div><div class="distn-bar"></div></div>
+                    <div class="distn-row"><div class="distn-name">Tigray</div><div class="distn-bar"></div></div>
+                    <div class="distn-row total"><div class="distn-name">Total:</div><div class="distn-bar"></div></div>
+                  </div>
+
+                  <button class="submit-btn" type="button">SUBMIT</button>
+                </div>
+              </div>
+
+              <div class="alloc-view" data-view="calc">
+                <div class="sub-card sub-card-narrow">
+                  <div class="sub-title green">Calculate Regional Distribution</div>
+                  <div class="calc-grid">
+                    <button class="open-btn" type="button">OPEN (2017/18)</button>
+                    <button class="open-btn" type="button">OPEN (2018/19)</button>
+                    <button class="open-btn" type="button">OPEN (2019/20)</button>
+                    <button class="open-btn" type="button">OPEN (2020/21)</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="alloc-view" data-view="season">
+                <div class="sub-card sub-card-narrow">
+                  <div class="sub-title">Seasonal Proportion</div>
+                  <form class="season-form" id="seasonForm" novalidate>
+                    <select id="sYearA" aria-label="Select the year">
+                      <option value="">Select the year</option>
+                      <option>2017/18</option>
+                      <option>2018/19</option>
+                      <option>2019/20</option>
+                      <option>2020/21</option>
+                    </select>
+                    <select id="sYearB" aria-label="Select the year">
+                      <option value="">Select the year</option>
+                      <option>2017/18</option>
+                      <option>2018/19</option>
+                      <option>2019/20</option>
+                      <option>2020/21</option>
+                    </select>
+
+                    <div class="checks-row" role="group" aria-label="Fertilizer types">
+                      <label class="check">
+                        <input type="checkbox" checked />
+                        <span>UREA</span>
+                      </label>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>DAP</span>
+                      </label>
+                    </div>
+
+                    <div class="season-field">
+                      <div class="field-label">Meher</div>
+                      <input id="meher" type="number" aria-label="Meher" />
+                    </div>
+                    <div class="season-field">
+                      <div class="field-label">Belg</div>
+                      <input id="belg" type="number" aria-label="Belg" />
+                    </div>
+                    <div class="season-field">
+                      <div class="field-label">Irrigation</div>
+                      <input id="irrigation" type="number" aria-label="Irrigation" />
+                    </div>
+
+                    <button class="submit-btn" type="submit">SUBMIT</button>
+                  </form>
+                </div>
+              </div>
+              </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/allocation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Union Overview — Fertilizer Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./components/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="./components/header/header.css" />
+    <link rel="stylesheet" href="./styles/union.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside id="sidebar-root"></aside>
+      <main class="main-area">
+        <header id="header-root"></header>
+        <section class="union-page" aria-label="Union overview">
+          <div class="union-surface">
+            <div class="union-summary" role="group" aria-label="Union totals">
+              <div class="summary-pill">
+                <span>Total Unions:</span><strong>121</strong>
+              </div>
+              <div class="summary-pill">
+                <span>Total Destinations:</span><strong>172</strong>
+              </div>
+              <div class="summary-pill">
+                <span>Total PCs:</span><strong>4270</strong>
+              </div>
+            </div>
+
+            <div class="union-grid">
+              <article class="union-card" tabindex="0" aria-label="Oromia union card">
+                <div class="union-card-head">
+                  <div class="union-region">Oromia</div>
+                  <div class="eth-flag" aria-label="Ethiopian flag" role="img">
+                    <svg width="36" height="22" viewBox="0 0 36 22">
+                      <rect width="36" height="7.33" fill="#d32f2f" />
+                      <rect y="7.33" width="36" height="7.33" fill="#ffffff" />
+                      <rect y="14.66" width="36" height="7.34" fill="#2e7d32" />
+                      <circle cx="18" cy="11" r="5" fill="#000000" opacity="0.9" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="maps-row" aria-hidden="true">
+                  <div class="map-large">
+                    <svg viewBox="0 0 140 95" width="140" height="95">
+                      <circle cx="52" cy="48" r="40" fill="#2f6fc9" />
+                      <path
+                        d="M25 36l9-10 10 4 6-6 10 3 4 10-7 6 6 9-8 10-12 2-12-6-3-10 5-12z"
+                        fill="#f4c21e"
+                      />
+                      <path
+                        d="M50 26l6 2 2 6-5 4-6-1-2-6z"
+                        fill="#f4c21e"
+                        opacity="0.9"
+                      />
+                      <text
+                        x="52"
+                        y="53"
+                        text-anchor="middle"
+                        font-size="9"
+                        font-family="Poppins, sans-serif"
+                        fill="#1a1a1a"
+                        font-weight="700"
+                      >
+                        Oromia
+                      </text>
+                    </svg>
+                  </div>
+                  <div class="map-small">
+                    <svg viewBox="0 0 110 95" width="110" height="95">
+                      <path
+                        d="M69 12l18 6 12 16-8 20-14 20-23 8-22-10-10-22 6-20 16-16 25-2z"
+                        fill="#f0d7d7"
+                        stroke="#999"
+                        stroke-width="1"
+                      />
+                      <path
+                        d="M57 30l10-8 10 4 4 10-6 6 4 10-8 8-12 2-10-6-2-10 6-16z"
+                        fill="#d0d7e7"
+                        opacity="0.75"
+                      />
+                      <path
+                        d="M49 42l10-10 10 4 4 10-6 6 4 10-8 8-12 2-10-6-2-10z"
+                        fill="#f4c21e"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="union-divider" aria-hidden="true"></div>
+
+                <div class="union-stats">
+                  <div class="stat-row">
+                    <span class="num">55</span><span class="lbl">Unions</span>
+                  </div>
+                  <div class="stat-row">
+                    <span class="num">70</span><span class="lbl">Destination</span>
+                  </div>
+                  <div class="stat-row">
+                    <span class="num">3551</span><span class="lbl">PCs</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="union-card" tabindex="0" aria-label="Oromia union card"></article>
+              <article class="union-card" tabindex="0" aria-label="Oromia union card"></article>
+              <article class="union-card" tabindex="0" aria-label="Oromia union card"></article>
+              <article class="union-card" tabindex="0" aria-label="Oromia union card"></article>
+              <article class="union-card" tabindex="0" aria-label="Oromia union card"></article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/union.js"></script>
+  </body>
+</html>

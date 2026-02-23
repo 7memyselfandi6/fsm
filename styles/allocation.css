@@ -1,0 +1,355 @@
+:root {
+  --alloc-surface: #d3d3d3;
+  --alloc-green: #00c16a;
+  --alloc-green-strong: #00a85c;
+  --alloc-card: #ffffff;
+  --alloc-input: #e8e8e8;
+  --alloc-bar: #ededed;
+  --alloc-line: #d0d0d0;
+  --alloc-title: #1f3ba8;
+  --alloc-text: #111111;
+  --alloc-muted: #333333;
+  --alloc-shadow: rgba(0, 0, 0, 0.22);
+  --alloc-shadow-strong: rgba(0, 0, 0, 0.28);
+}
+
+[data-theme="dark"] {
+  --alloc-surface: #1c1f22;
+  --alloc-card: #2a2f34;
+  --alloc-input: #1f2428;
+  --alloc-bar: #22272c;
+  --alloc-line: rgba(255, 255, 255, 0.14);
+  --alloc-title: #8aa6ff;
+  --alloc-text: rgba(255, 255, 255, 0.92);
+  --alloc-muted: rgba(255, 255, 255, 0.72);
+  --alloc-shadow: rgba(0, 0, 0, 0.55);
+  --alloc-shadow-strong: rgba(0, 0, 0, 0.65);
+}
+
+.alloc-page {
+  min-height: 0;
+}
+
+.alloc-surface {
+  background: var(--alloc-surface);
+  border-radius: 26px;
+  padding: 18px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 18px;
+}
+
+.alloc-surface:not(.has-view) .alloc-views {
+  display: none;
+}
+
+.alloc-instructions,
+.alloc-views {
+  display: flex;
+  justify-content: center;
+}
+
+.alloc-top {
+  display: flex;
+  justify-content: center;
+}
+
+.alloc-tabs {
+  width: min(980px, 100%);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  padding: 4px 6px;
+}
+
+.alloc-tab {
+  height: 44px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #22d17a, #0ba85f);
+  box-shadow: 0 10px 18px var(--alloc-shadow);
+  cursor: pointer;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.alloc-tab.active {
+  background: linear-gradient(180deg, #9dd500, #00b160);
+  box-shadow: 0 12px 20px var(--alloc-shadow-strong);
+}
+
+.inst-card {
+  background: var(--alloc-card);
+  border-radius: 22px;
+  box-shadow: 0 10px 18px var(--alloc-shadow);
+  padding: 22px 26px 22px;
+  width: min(980px, 100%);
+}
+
+.inst-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--alloc-title);
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.inst-body {
+  display: grid;
+  gap: 12px;
+}
+
+.inst-head {
+  font-weight: 800;
+  color: var(--alloc-text);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.inst-text {
+  font-size: 11px;
+  color: var(--alloc-muted);
+  line-height: 1.5;
+}
+
+.alloc-views {
+  min-width: 0;
+  width: 100%;
+}
+
+.alloc-view {
+  display: none;
+}
+
+.alloc-view.active {
+  display: block;
+}
+
+.sub-card {
+  background: var(--alloc-card);
+  border-radius: 22px;
+  box-shadow: 0 10px 18px var(--alloc-shadow);
+  padding: 18px 18px 16px;
+  margin: 0 auto;
+}
+
+.sub-card-narrow {
+  width: min(520px, 100%);
+}
+
+.sub-card-wide {
+  width: min(980px, 100%);
+  padding: 10px;
+  overflow: hidden;
+}
+
+.sub-title {
+  font-weight: 900;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--alloc-text);
+}
+
+.sub-title.green {
+  color: #00a85c;
+}
+
+.purchased-stack {
+  display: grid;
+  gap: 22px;
+  justify-items: center;
+  padding-bottom: 10px;
+}
+
+.sub-form {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+}
+
+.sub-form select,
+.sub-form input,
+.season-form select,
+.season-form input,
+.rdistn-head select {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: var(--alloc-input);
+  padding: 12px 12px;
+  font-weight: 600;
+  color: var(--alloc-muted);
+  outline: none;
+}
+
+.sub-form input::placeholder {
+  color: var(--alloc-muted);
+}
+
+.submit-btn {
+  width: min(280px, 100%);
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #22d17a, #0ba85f);
+  box-shadow: 0 12px 18px rgba(0, 193, 106, 0.28);
+  cursor: pointer;
+  padding: 12px 16px;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  color: #0a1b11;
+}
+
+.alloc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.alloc-table th,
+.alloc-table td {
+  border-bottom: 1px solid var(--alloc-line);
+  padding: 12px 12px;
+  text-align: left;
+}
+
+.alloc-table th {
+  font-weight: 900;
+}
+
+.alloc-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.rdistn-head {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.rdistn-pill {
+  background: var(--alloc-input);
+  border-radius: 8px;
+  padding: 12px 10px;
+  text-align: center;
+  font-weight: 900;
+  color: var(--alloc-muted);
+}
+
+.distn-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.distn-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+.distn-name {
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--alloc-text);
+}
+
+.distn-bar {
+  height: 18px;
+  background: var(--alloc-bar);
+  border-radius: 8px;
+}
+
+.distn-row.total .distn-name {
+  font-weight: 900;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  padding: 10px 10px 18px;
+}
+
+.open-btn {
+  height: 92px;
+  border: none;
+  border-radius: 14px;
+  background: #00e000;
+  color: #111111;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.22);
+}
+
+.season-form {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+}
+
+.checks-row {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  padding: 6px 0 4px;
+}
+
+.season-field {
+  width: 100%;
+}
+
+.field-label {
+  font-weight: 900;
+  color: var(--alloc-text);
+  font-size: 12px;
+  margin: 4px 0 8px;
+}
+
+.checks {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  color: var(--alloc-text);
+  font-size: 12px;
+}
+
+.check input {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 1200px) {
+  .distn-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .alloc-tabs {
+    grid-template-columns: 1fr;
+  }
+  .alloc-tab {
+    width: 100%;
+  }
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}

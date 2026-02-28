@@ -2,6 +2,17 @@ const path = window.location.pathname.toLowerCase();
 const isLoginPage = path.endsWith("/login.html");
 const isUnionPage = path.endsWith("/union.html");
 const isAllocationPage = path.endsWith("/allocation.html");
+const isReAllocationPage = path.endsWith("/re-allocation.html");
+const isRequestDetailPage = path.endsWith("/request-detail.html");
+const isGraphsPage = path.endsWith("/graphs.html");
+const isIntelligencePage = path.endsWith("/intelligence.html");
+const isFmsPage = path.endsWith("/fms.html");
+const isRegionStaffPage = path.endsWith("/region-staff.html");
+const isFDemandPage = path.endsWith("/f-demand.html");
+const isWoredaStaffPage = path.endsWith("/woreda-staff.html");
+const isDetailedDemandPage = path.endsWith("/detailed-demand.html");
+const isApprovalPage = path.endsWith("/approval.html");
+const isDemandSummaryPage = path.endsWith("/demand-summary.html");
 
 const state = {
   theme: "light",
@@ -11,7 +22,29 @@ const state = {
       ? "union"
       : isAllocationPage
         ? "allocation"
-        : "dashboard",
+        : isReAllocationPage
+          ? "re-allocation"
+          : isRequestDetailPage
+            ? "request-detail"
+            : isGraphsPage
+              ? "graphs"
+              : isIntelligencePage
+                ? "intelligence"
+                : isFmsPage
+                  ? "fms"
+                  : isRegionStaffPage
+                    ? "region-staff"
+                    : isFDemandPage
+                      ? "f-demand"
+                      : isWoredaStaffPage
+                        ? "woreda-staff"
+                        : isDetailedDemandPage
+                          ? "detailed-demand"
+                          : isApprovalPage
+                            ? "approval"
+                            : isDemandSummaryPage
+                              ? "demand-summary"
+            : "dashboard",
   search: ""
 };
 
@@ -35,18 +68,475 @@ window.AppState = {
   subscribe
 };
 
-window.ComponentLoader = {
-  load: async (rootId, htmlPath, jsPath) => {
-    const root = document.getElementById(rootId);
-    if (!root) {
+const sidebarHtml = `<div class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">
+      <img src="./images/fmslogo2.png" alt="Ethiopian Fertilizer Digital Tracking System logo" aria-hidden="true" />
+    </div>
+    <div class="logo-text">
+      <div class="logo-title">Ethiopian Fertilizer</div>
+      <div class="logo-sub">Digital Tracking System</div>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <button class="nav-item active" data-route="dashboard">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 4h7v7H4zM13 4h7v5h-7zM13 11h7v9h-7zM4 13h7v7H4z" fill="currentColor" />
+        </svg>
+      </span>
+      Dashboard
+    </button>
+    <button class="nav-item muted" disabled data-route="home">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 10.5 12 3l9 7.5V21H3z" fill="currentColor" />
+        </svg>
+      </span>
+      HOME
+    </button>
+    <a class="nav-item" href="./login.html" data-route="moa-member">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      MoA Member
+    </a>
+    <a class="nav-item" href="./region-staff.html" data-route="region-staff">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 19V5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path
+            d="M6.5 16.5 10 13l3 2 5-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      Region Staff
+    </a>
+    <a class="nav-item" href="./f-demand.html" data-route="f-demand" hidden>
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 19V5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path
+            d="M7 15l3-4 3 3 4-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      F-Demand
+    </a>
+    <button class="nav-item muted" disabled>Zone Staff</button>
+    <a class="nav-item" href="./woreda-staff.html" data-route="woreda-staff">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7 3h10v3H7zM6 8h12v13H6z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linejoin="round"
+          />
+          <path d="M9 12h6M9 15.5h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      Woreda Staff
+    </a>
+    <button class="nav-item muted" disabled>Kebele Staff</button>
+    <a class="nav-item" href="./allocation.html" data-route="allocation">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 4h16v4H4zM4 10h10v10H4zM16 10h4v10h-4z" fill="currentColor" />
+        </svg>
+      </span>
+      Allocation
+    </a>
+    <a class="nav-item" href="./re-allocation.html" data-route="re-allocation">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M6 4h12v4H6zM4 10h16v10H4z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linejoin="round"
+          />
+          <path d="M8 14h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      re-allocation
+    </a>
+    <a class="nav-item" href="./request-detail.html" data-route="request-detail">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7 3h10v3H7zM6 8h12v13H6z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M8.5 12h7M8.5 15.5h7M8.5 19h5"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </span>
+      request detail
+    </a>
+    <a class="nav-item" href="./graphs.html" data-route="graphs">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 19V5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M7 16v-4M12 16V8M17 16v-6" stroke="currentColor" stroke-width="2" />
+        </svg>
+      </span>
+      Graphs
+    </a>
+    <a class="nav-item" href="./intelligence.html" data-route="intelligence">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 19V5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M7 16V11M12 16V9M17 16V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path
+            d="M7 10l5-3 5 3"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      intelligence
+    </a>
+    <a class="nav-item" href="./fms.html" data-route="fms">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7 3h10v3H7zM6 8h12v13H6z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linejoin="round"
+          />
+          <path d="M8.5 12h7M8.5 15.5h7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M8.5 19h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      FMS
+    </a>
+    <a class="nav-item" href="./detailed-demand.html" data-route="detailed-demand">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7 3h10v3H7zM6 8h12v13H6z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linejoin="round"
+          />
+          <path d="M9 12h6M9 15.5h6M9 19h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      detailed demand
+    </a>
+    <a class="nav-item" href="./approval.html" data-route="approval">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7 3h10v3H7zM6 8h12v13H6z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9 12l2 2 4-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path d="M9 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      Approval
+    </a>
+    <a class="nav-item" href="./demand-summary.html" data-route="demand-summary">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 19V5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path
+            d="M7 15l3-3 3 2 4-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      Demand Summary
+    </a>
+    <a class="nav-item" href="./union.html" data-route="union">
+      <span class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3l9 5v8l-9 5-9-5V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+          <path d="M12 3v18" stroke="currentColor" stroke-width="2" />
+        </svg>
+      </span>
+      Union
+    </a>
+    <button class="nav-item muted" disabled>Primary Coop</button>
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="chat-btn" aria-label="Chat">
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M4 5h16v10H7l-3 3z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+    <div class="theme-toggle">
+      <button class="theme-btn" data-theme="dark" aria-label="Dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 15.5A9 9 0 0 1 8.5 3 8 8 0 1 0 21 15.5z" fill="currentColor" />
+        </svg>
+      </button>
+      <button class="theme-btn active" data-theme="light" aria-label="Light mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="currentColor" />
+          <path
+            d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>`;
+
+const headerHtml = `<div class="header">
+  <div class="search-box">
+    <span class="search-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none" />
+        <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </span>
+    <input type="text" placeholder="Search task" />
+    <button class="search-action" aria-label="Copy">
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="8" y="7" width="10" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+        <rect x="5" y="4" width="10" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="header-actions">
+    <button class="icon-btn" aria-label="Messages">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M4 5h16v12H6l-2 2z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+    <button class="icon-btn" aria-label="Notifications">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 3a5 5 0 0 0-5 5v4l-2 3h14l-2-3V8a5 5 0 0 0-5-5z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <path d="M10 19a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="2" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="ministry">
+    <div class="ministry-logo">
+      <img src="./images/moa_upload.png" alt="Ministry of Agriculture logo" aria-hidden="true" />
+    </div>
+    <div class="ministry-text">MINISTRY OF AGRICULTURE <i class="fa-solid fa-bowl-food"></i></div>
+  </div>
+</div>`;
+
+const injectIfEmpty = (rootId, markup) => {
+  const root = document.getElementById(rootId);
+  if (!root) {
+    return;
+  }
+  if (root.childNodes.length === 0) {
+    root.innerHTML = markup;
+  }
+};
+
+const initHeader = () => {
+  const searchInput = document.querySelector(".search-box input");
+  const actionButton = document.querySelector(".search-action");
+
+  if (searchInput && window.AppState) {
+    searchInput.addEventListener("input", (event) => {
+      window.AppState.setState({ search: event.target.value });
+    });
+    window.AppState.subscribe((nextState) => {
+      if (searchInput.value !== nextState.search) {
+        searchInput.value = nextState.search;
+      }
+    });
+  }
+
+  if (actionButton && window.AppState) {
+    actionButton.addEventListener("click", () => {
+      const value = window.AppState.state.search || "";
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(value);
+      }
+    });
+  }
+};
+
+const initSidebar = () => {
+  const navItems = Array.from(document.querySelectorAll(".nav-item"));
+  const themeButtons = Array.from(document.querySelectorAll(".theme-btn"));
+
+  navItems.forEach((item) => {
+    if (item.disabled) {
       return;
     }
-    const resolveUrl = (p) => new URL(p, document.baseURI).href;
-    const response = await fetch(resolveUrl(htmlPath));
-    root.innerHTML = await response.text();
-    if (jsPath) {
-      await import(resolveUrl(jsPath));
-    }
+    item.addEventListener("click", (event) => {
+      if (item.tagName === "A" && item.getAttribute("href")) {
+        event.preventDefault();
+      }
+      const route = item.dataset.route || "";
+      if (route === "moa-member") {
+        window.location.href = "./login.html";
+        return;
+      }
+      if (route === "union") {
+        window.location.href = "./union.html";
+        return;
+      }
+      if (route === "allocation") {
+        window.location.href = "./allocation.html";
+        return;
+      }
+      if (route === "re-allocation") {
+        window.location.href = "./re-allocation.html";
+        return;
+      }
+      if (route === "request-detail") {
+        window.location.href = "./request-detail.html";
+        return;
+      }
+      if (route === "graphs") {
+        window.location.href = "./graphs.html";
+        return;
+      }
+      if (route === "intelligence") {
+        window.location.href = "./intelligence.html";
+        return;
+      }
+      if (route === "fms") {
+        window.location.href = "./fms.html";
+        return;
+      }
+      if (route === "region-staff") {
+        window.location.href = "./region-staff.html";
+        return;
+      }
+      if (route === "f-demand") {
+        window.location.href = "./f-demand.html";
+        return;
+      }
+      if (route === "woreda-staff") {
+        window.location.href = "./woreda-staff.html";
+        return;
+      }
+      if (route === "detailed-demand") {
+        window.location.href = "./detailed-demand.html";
+        return;
+      }
+      if (route === "approval") {
+        window.location.href = "./approval.html";
+        return;
+      }
+      if (route === "demand-summary") {
+        window.location.href = "./demand-summary.html";
+        return;
+      }
+      if (route === "dashboard") {
+        window.location.href = "./index.html";
+        return;
+      }
+      if (window.AppState) {
+        window.AppState.setState({ activeNav: route });
+      }
+    });
+  });
+
+  themeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const theme = button.dataset.theme || "light";
+      if (window.AppState) {
+        window.AppState.setState({ theme });
+      }
+    });
+  });
+
+  if (window.AppState) {
+    window.AppState.subscribe((nextState) => {
+      navItems.forEach((item) => {
+        const route = item.dataset.route || "";
+        item.classList.toggle("active", route === nextState.activeNav);
+      });
+
+      const fDemandItem = navItems.find((item) => item.dataset.route === "f-demand");
+      if (fDemandItem) {
+        const show = nextState.activeNav === "region-staff" || nextState.activeNav === "f-demand";
+        fDemandItem.hidden = !show;
+      }
+
+      themeButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.theme === nextState.theme);
+      });
+    });
   }
 };
 
@@ -58,22 +548,7 @@ subscribe((nextState) => {
   applyTheme(nextState.theme);
 });
 
-const loadInitial = async () => {
-  await window.ComponentLoader.load(
-    "sidebar-root",
-    "./components/sidebar/sidebar.html",
-    "./components/sidebar/sidebar.js"
-  );
-  await window.ComponentLoader.load(
-    "header-root",
-    "./components/header/header.html",
-    "./components/header/header.js"
-  );
-  await window.ComponentLoader.load(
-    "dashboard-root",
-    "./components/dashboard/dashboard.html",
-    "./components/dashboard/dashboard.js"
-  );
-};
-
-loadInitial();
+injectIfEmpty("sidebar-root", sidebarHtml);
+injectIfEmpty("header-root", headerHtml);
+initHeader();
+initSidebar();

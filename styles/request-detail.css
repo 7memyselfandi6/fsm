@@ -1,0 +1,258 @@
+:root {
+  --req-surface: #d3d3d3;
+  --req-green: #28a745;
+  --req-card: #ffffff;
+  --req-table-head: #dcdcdc;
+  --req-row: #ffffff;
+  --req-row-alt: #fbf0f0;
+  --req-border: rgba(0, 0, 0, 0.12);
+  --req-shadow: rgba(0, 0, 0, 0.12);
+  --req-text: #111111;
+  --req-muted: #6b6b6b;
+}
+
+.req-page {
+  min-height: 0;
+}
+
+.req-surface {
+  background: var(--req-surface);
+  border-radius: 26px;
+  padding: 18px 18px 26px;
+  min-height: 0;
+}
+
+.req-topbar {
+  display: grid;
+  grid-template-columns: auto 10px auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 6px 6px 10px;
+}
+
+.req-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.req-brand-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 10px var(--req-shadow);
+}
+
+.req-brand-text {
+  display: grid;
+  gap: 2px;
+}
+
+.req-brand-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--req-text);
+  letter-spacing: 0.2px;
+}
+
+.req-brand-sub {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--req-muted);
+  letter-spacing: 0.2px;
+}
+
+.req-divider {
+  width: 2px;
+  height: 44px;
+  background: #111111;
+  justify-self: center;
+}
+
+.req-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--req-green);
+  letter-spacing: 0.2px;
+}
+
+.req-lang {
+  display: flex;
+  gap: 18px;
+  justify-self: end;
+  align-items: center;
+  padding-right: 4px;
+}
+
+.req-lang-link {
+  text-decoration: none;
+  color: #111111;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.req-lang-link.active {
+  color: var(--req-green);
+}
+
+.req-heading {
+  margin: 10px 0 18px;
+  text-align: center;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #111111;
+  line-height: 1.2;
+}
+
+.req-heading-meta {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  margin-left: 8px;
+  color: #111111;
+  white-space: nowrap;
+}
+
+.req-card {
+  background: var(--req-card);
+  border-radius: 16px;
+  box-shadow: 0 8px 18px var(--req-shadow);
+  padding: 16px 16px 18px;
+}
+
+.req-search {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 4px 12px;
+}
+
+.req-searchbox {
+  width: min(320px, 100%);
+  position: relative;
+}
+
+.req-searchbox input {
+  width: min(320px, 100%);
+  height: 44px;
+  border: 2px solid rgba(0, 0, 0, 0.35);
+  border-radius: 14px;
+  padding: 0 14px 0 48px;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.req-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+}
+
+.req-table-wrap {
+  overflow: auto;
+  border-radius: 12px;
+  border: 1px solid var(--req-border);
+}
+
+.req-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 920px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111111;
+}
+
+.req-table thead th {
+  background: var(--req-table-head);
+  padding: 12px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid var(--req-border);
+}
+
+.req-table tbody td {
+  padding: 12px 12px;
+  border-bottom: 1px solid var(--req-border);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.req-table tbody tr:nth-child(odd) {
+  background: var(--req-row);
+}
+
+.req-table tbody tr:nth-child(even) {
+  background: var(--req-row-alt);
+}
+
+.sn-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sn-num {
+  width: 24px;
+  display: inline-block;
+}
+
+.req-totals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  padding: 16px 8px 0;
+}
+
+.req-pill {
+  background: var(--req-green);
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  align-items: center;
+  box-shadow: 0 6px 14px rgba(40, 167, 69, 0.35);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111111;
+}
+
+.req-pill span {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.req-pill strong {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+@media (max-width: 980px) {
+  .req-topbar {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 10px;
+  }
+  .req-divider {
+    display: none;
+  }
+  .req-lang {
+    justify-self: center;
+  }
+  .req-search {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .req-totals {
+    grid-template-columns: 1fr;
+  }
+}

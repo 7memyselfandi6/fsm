@@ -15,6 +15,12 @@
   padding: 6px 8px;
 }
 
+.sidebar-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .logo-mark {
   width: 46px;
   height: 46px;
@@ -52,6 +58,12 @@
   cursor: pointer;
   text-align: left;
   text-decoration: none;
+}
+
+.nav-item:not(.muted):not(.active):hover {
+  background: var(--active-bg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .nav-item.active {

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F-Demand — Fertilizer Management System</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./components/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="./components/header/header.css" />
+    <link rel="stylesheet" href="./styles/f-demand.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside id="sidebar-root"></aside>
+      <main class="main-area">
+        <header id="header-root"></header>
+
+        <section class="fd-page" aria-label="F-Demand dashboard">
+          <div class="fd-surface">
+            <div class="fd-topbar">
+              <div class="fd-minihead">Eeeedy Chain Dasbourd</div>
+              <div class="fd-topbar-icons" aria-hidden="true">
+                <span class="fd-i">🔍</span>
+                <span class="fd-i">⤢</span>
+              </div>
+            </div>
+
+            <div class="fd-title-row">
+              <h1 class="fd-title">Supply Chain Tracking (LIVE)</h1>
+              <div class="fd-search">
+                <input
+                  id="fdSearch"
+                  type="search"
+                  placeholder="Search union or fertilizer"
+                  aria-label="Search union or fertilizer"
+                />
+              </div>
+            </div>
+
+            <div class="fd-grid">
+              <div class="fd-main">
+                <section class="fd-panel" aria-label="Regional demand">
+                  <div class="fd-panel-head">
+                    <div class="fd-panel-title">Regional Demand</div>
+                    <div class="fd-panel-pill" aria-hidden="true">ZONE</div>
+                  </div>
+
+                  <div class="fd-flow">
+                    <div class="fd-flow-map" aria-hidden="true">
+                      <svg class="fd-ethiopia" viewBox="0 0 860 430">
+                        <defs>
+                          <filter id="glowBlue" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3.2" result="b1" />
+                            <feMerge>
+                              <feMergeNode in="b1" />
+                              <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                          </filter>
+                          <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="2.4" result="b2" />
+                            <feMerge>
+                              <feMergeNode in="b2" />
+                              <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                          </filter>
+                        </defs>
+
+
+                      </svg>
+                    </div>
+
+                    <div class="fd-boxes" aria-label="Regional boxes">
+                      <article class="fd-box chart" aria-label="Regional demand chart">
+                        <div class="fd-box-title">Regional Demand</div>
+                        <svg class="fd-mini-chart" viewBox="0 0 160 70" aria-hidden="true">
+                          <path
+                            d="M8 58L28 50 46 52 64 40 84 44 104 30 124 34 144 20"
+                            fill="none"
+                            stroke="rgba(31, 183, 96, 0.95)"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <circle cx="144" cy="20" r="4" fill="rgba(31, 183, 96, 0.95)" />
+                        </svg>
+                        <div class="fd-box-corner" aria-hidden="true">○</div>
+                      </article>
+
+                      <article class="fd-box active" aria-label="East Guraghe">
+                        <div class="fd-box-title">East Guraghe</div>
+                        <div class="fd-box-sub">Human telecom target estab.</div>
+                      </article>
+
+                      <article class="fd-box" aria-label="Guraghe">
+                        <div class="fd-box-title">Guraghe</div>
+                        <div class="fd-box-sub">Basoper accord or direct data b</div>
+                      </article>
+
+                      <article class="fd-box" aria-label="Kontidyo-Bitamee">
+                        <div class="fd-box-title">Kontidyo-Bitamee</div>
+                        <div class="fd-box-sub">Manpass port accer connations</div>
+                      </article>
+
+                      <article class="fd-box active" aria-label="East Goreghe">
+                        <div class="fd-box-title">East Goreghe</div>
+                        <div class="fd-box-sub">Human telecom target estab.</div>
+                      </article>
+
+                      <article class="fd-box" aria-label="Midevionlou">
+                        <div class="fd-box-title">Midevionlou</div>
+                        <div class="fd-box-sub">Quees temy tonincoling oclomsp</div>
+                      </article>
+
+                      <article class="fd-box" aria-label="Batoricou">
+                        <div class="fd-box-title">Batoricou</div>
+                        <div class="fd-box-sub">Provile a user for each stage</div>
+                      </article>
+
+                      <article class="fd-box" aria-label="Guraghe right">
+                        <div class="fd-box-title">Guraghe</div>
+                        <div class="fd-box-sub">Formanst ap exted or nodeps</div>
+                      </article>
+                    </div>
+                  </div>
+
+                  <section class="fd-table-panel" aria-label="Allocation to unions">
+                    <div class="fd-subtitle">Allocation to Unions</div>
+                    <div class="fd-table-wrap" role="region" aria-label="Allocation table" tabindex="0">
+                      <table class="fd-table" id="fdTable">
+                        <thead>
+                          <tr>
+                            <th>Amount (tq)</th>
+                            <th>Fobba</th>
+                            <th>Ammation</th>
+                            <th>Enase</th>
+                            <th>Modio</th>
+                            <th>Ammation</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="u">Guraghe</td>
+                            <td>1</td>
+                            <td>7,893.2</td>
+                            <td>1,098</td>
+                            <td>12</td>
+                            <td>1,001.8</td>
+                          </tr>
+                          <tr>
+                            <td>Hadiya</td>
+                            <td>2</td>
+                            <td>5,178.6</td>
+                            <td>1,250</td>
+                            <td>24</td>
+                            <td>950.4</td>
+                          </tr>
+                          <tr>
+                            <td>Kembata</td>
+                            <td>3</td>
+                            <td>4,623.1</td>
+                            <td>980</td>
+                            <td>18</td>
+                            <td>812.9</td>
+                          </tr>
+                          <tr>
+                            <td>Siltie</td>
+                            <td>4</td>
+                            <td>3,998.0</td>
+                            <td>1,120</td>
+                            <td>14</td>
+                            <td>700.3</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                </section>
+              </div>
+
+              <aside class="fd-side" aria-label="Zone charts">
+                <article class="fd-side-card" aria-label="Roobeteao Etae">
+                  <div class="fd-side-head">
+                    <div>
+                      <div class="fd-side-title">Roobeteao Etae</div>
+                      <div class="fd-side-sub">Human telecom</div>
+                    </div>
+                    <div class="fd-side-dot" aria-hidden="true">▶</div>
+                  </div>
+                  <svg class="fd-side-chart" viewBox="0 0 240 80" aria-hidden="true">
+                    <g class="fd-axis">
+                      <line x1="18" y1="8" x2="18" y2="70" />
+                      <line x1="18" y1="70" x2="230" y2="70" />
+                    </g>
+                    <path
+                      class="fd-line"
+                      d="M18 58L44 50 70 56 96 40 122 44 148 30 174 34 200 22 230 28"
+                    />
+                  </svg>
+                  <div class="fd-side-foot">
+                    <span class="fd-live">Live</span>
+                    <span class="fd-muted">···</span>
+                  </div>
+                </article>
+
+                <article class="fd-side-card" aria-label="Gedtema SP">
+                  <div class="fd-side-head">
+                    <div>
+                      <div class="fd-side-title">Gedtema SP</div>
+                      <div class="fd-side-sub">Human telecom</div>
+                    </div>
+                    <div class="fd-side-dot" aria-hidden="true">▶</div>
+                  </div>
+                  <svg class="fd-side-chart" viewBox="0 0 240 80" aria-hidden="true">
+                    <g class="fd-axis">
+                      <line x1="18" y1="8" x2="18" y2="70" />
+                      <line x1="18" y1="70" x2="230" y2="70" />
+                    </g>
+                    <path class="fd-line" d="M18 52L44 46 70 44 96 54 122 40 148 42 174 30 200 34 230 26" />
+                  </svg>
+                  <div class="fd-side-foot">
+                    <span class="fd-live">Live</span>
+                    <span class="fd-muted">···</span>
+                  </div>
+                </article>
+
+                <article class="fd-side-card" aria-label="Phdneateo">
+                  <div class="fd-side-head">
+                    <div>
+                      <div class="fd-side-title">Phdneateo</div>
+                      <div class="fd-side-sub">Human telecom</div>
+                    </div>
+                    <div class="fd-side-dot" aria-hidden="true">▶</div>
+                  </div>
+                  <svg class="fd-side-chart" viewBox="0 0 240 80" aria-hidden="true">
+                    <g class="fd-axis">
+                      <line x1="18" y1="8" x2="18" y2="70" />
+                      <line x1="18" y1="70" x2="230" y2="70" />
+                    </g>
+                    <path
+                      class="fd-line"
+                      d="M18 60L44 58 70 52 96 44 122 48 148 36 174 40 200 28 230 30"
+                    />
+                  </svg>
+                  <div class="fd-side-foot">
+                    <span class="fd-live">Live</span>
+                    <span class="fd-muted">···</span>
+                  </div>
+                </article>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/f-demand.js"></script>
+  </body>
+</html>

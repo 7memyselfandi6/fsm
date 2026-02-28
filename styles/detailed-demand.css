@@ -1,0 +1,97 @@
+:root {
+  --dd-surface: #d3d3d3;
+  --dd-card: #f6f7f8;
+  --dd-shadow: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] {
+  --dd-surface: #1c1f22;
+  --dd-card: #2a2f34;
+  --dd-shadow: rgba(0, 0, 0, 0.35);
+}
+
+.dd-page {
+  min-height: 0;
+}
+
+.dd-surface {
+  background: var(--dd-surface);
+  border-radius: 26px;
+  padding: 22px 22px 26px;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+}
+
+.dd-card {
+  width: min(620px, 100%);
+  background: var(--dd-card);
+  border-radius: 26px;
+  box-shadow: 0 12px 22px var(--dd-shadow);
+  padding: 44px 34px 40px;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.dd-title,
+.dd-footer {
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  color: #111111;
+}
+
+[data-theme="dark"] .dd-title,
+[data-theme="dark"] .dd-footer {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.dd-title {
+  font-size: 30px;
+  line-height: 1.18;
+}
+
+.dd-year {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  color: #111111;
+}
+
+[data-theme="dark"] .dd-year {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.dd-sub {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #111111;
+}
+
+[data-theme="dark"] .dd-sub {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dd-footer {
+  font-size: 28px;
+  line-height: 1.18;
+  padding-top: 14px;
+}
+
+@media (max-width: 600px) {
+  .dd-card {
+    padding: 34px 22px 30px;
+  }
+  .dd-title {
+    font-size: 24px;
+  }
+  .dd-year {
+    font-size: 22px;
+  }
+  .dd-footer {
+    font-size: 24px;
+  }
+}

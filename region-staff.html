@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Region Staff — Fertilizer Management System</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./components/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="./components/header/header.css" />
+    <link rel="stylesheet" href="./styles/region-staff.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside id="sidebar-root"></aside>
+      <main class="main-area">
+        <header id="header-root"></header>
+        <section class="rs-page" aria-label="Region staff tracking">
+          <div class="rs-surface">
+            <div class="rs-flag" aria-hidden="true">
+              <svg width="48" height="32" viewBox="0 0 48 32">
+                <rect width="48" height="10.67" y="0" fill="#1b5e20" />
+                <rect width="48" height="10.67" y="10.67" fill="#ffffff" />
+                <rect width="48" height="10.66" y="21.34" fill="#d32f2f" />
+                <g transform="translate(24 16)">
+                  <circle r="6.2" fill="#2b5bff" opacity="0.18" />
+                  <g fill="#2b5bff">
+                    <circle cx="0" cy="-6" r="0.9" />
+                    <circle cx="3" cy="-5" r="0.9" />
+                    <circle cx="5" cy="-3" r="0.9" />
+                    <circle cx="6" cy="0" r="0.9" />
+                    <circle cx="5" cy="3" r="0.9" />
+                    <circle cx="3" cy="5" r="0.9" />
+                    <circle cx="0" cy="6" r="0.9" />
+                    <circle cx="-3" cy="5" r="0.9" />
+                    <circle cx="-5" cy="3" r="0.9" />
+                    <circle cx="-6" cy="0" r="0.9" />
+                    <circle cx="-5" cy="-3" r="0.9" />
+                    <circle cx="-3" cy="-5" r="0.9" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+
+            <h1 class="rs-title">Fertilizer Tracking System</h1>
+
+            <section class="rs-metrics" aria-label="Summary cards">
+              <article class="metric-card" aria-label="Unions">
+                <div class="metric-ico" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24">
+                    <path
+                      d="M4 4h7v7H4zM13 4h7v5h-7zM13 11h7v9h-7zM4 13h7v7H4z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+                <div class="metric-num">10</div>
+                <div class="metric-lbl">Unions</div>
+              </article>
+
+              <article class="metric-card" aria-label="Destinations">
+                <div class="metric-ico" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24">
+                    <path
+                      d="M7 4h10v8H7zM5 12h14v6H5z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
+                    <path d="M7 18h2M15 18h2" stroke="currentColor" stroke-width="2" />
+                  </svg>
+                </div>
+                <div class="metric-num">10</div>
+                <div class="metric-lbl">Destinations</div>
+              </article>
+
+              <article class="metric-card" aria-label="Primary Cooperatives">
+                <div class="metric-ico" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24">
+                    <path
+                      d="M7 12l2-2 3 3 3-3 2 2-5 6z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M4 12c0-2 2-4 4-4m12 4c0-2-2-4-4-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="metric-num">313</div>
+                <div class="metric-lbl">Primary Cooperatives</div>
+              </article>
+
+              <article class="metric-card" aria-label="Zones">
+                <div class="metric-ico" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2c3.9 0 7 3.1 7 7 0 5.2-7 13-7 13S5 14.2 5 9c0-3.9 3.1-7 7-7z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <circle cx="12" cy="9" r="2" fill="currentColor" />
+                  </svg>
+                </div>
+                <div class="metric-num">10</div>
+                <div class="metric-lbl">Zones</div>
+              </article>
+            </section>
+
+            <section class="rs-card" aria-label="Live supply chain monitor">
+              <header class="rs-card-top">
+                <div class="rs-card-top-left">
+                  <span class="rs-top-ico" aria-hidden="true">🚚</span>
+                  <span>Supply Chain Tracking</span>
+                  <span class="live-pill">LIVE</span>
+                </div>
+                <div class="rs-card-top-right" aria-hidden="true">
+                  <span class="top-ico">🔍</span>
+                  <span class="top-ico">🌐</span>
+                  <span class="top-ico">⚙️</span>
+                </div>
+              </header>
+
+              <div class="rs-card-body">
+                <div class="rs-subhead">
+                  <div class="rs-subtitle">
+                    <span class="rs-subtitle-ico" aria-hidden="true">🚚</span>
+                    <span>Live Supply Chain Monitor</span>
+                  </div>
+                  <div class="rs-updated">Updated seconds ago</div>
+                </div>
+
+                <div class="rs-table-wrap" role="region" aria-label="Supply chain table" tabindex="0">
+                  <table class="rs-table">
+                    <thead>
+                      <tr>
+                        <th>Zone</th>
+                        <th>Primary Destinations</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="zone">Guraghe</td>
+                        <td>Adama Arba Gugu · Arsi Robe · Bekoji · Etiya · Etiya · Jeju</td>
+                        <td class="status"><span class="dot active"></span>Active</td>
+                      </tr>
+                      <tr>
+                        <td class="zone">Kebena SP</td>
+                        <td>Haromaya · Haromaya Arfan Qallo · Chalenko · Deder · Gursum</td>
+                        <td class="status"><span class="dot active"></span>Active</td>
+                      </tr>
+                      <tr>
+                        <td class="zone">Kembata</td>
+                        <td>Adama Meki · Adam Lume · Meki</td>
+                        <td class="status"><span class="dot transit"></span>In Transit</td>
+                      </tr>
+                      <tr>
+                        <td class="zone">Kembata</td>
+                        <td>Adama Meki · Adam · Gutin</td>
+                        <td class="status"><span class="dot transit"></span>In Transit</td>
+                      </tr>
+                      <tr>
+                        <td class="zone">Mareko SP</td>
+                        <td>Nekemte · Ano, Gutin</td>
+                        <td class="status"><span class="dot active"></span>Active</td>
+                      </tr>
+                      <tr>
+                        <td class="zone">Tembaro SP</td>
+                        <td>Kombolcha · Shambu</td>
+                        <td class="status"><span class="dot active"></span>Active</td>
+                      </tr>
+                      <tr>
+                        <td class="zone">Halaba</td>
+                        <td>Yabelo</td>
+                        <td class="status"><span class="dot idle"></span>Idle</td>
+                      </tr>
+                      <tr>
+                        <td class="zone">Yem</td>
+                        <td>Matu</td>
+                        <td class="status"><span class="dot active"></span>Active</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="rs-note" role="note">
+                  <strong>Note:</strong> Zones like East Guraghe, Hadiya, and Siltie currently have no
+                  destinations assigned. Would you like flag these as "<strong>Attention Required</strong>"?
+                </div>
+              </div>
+            </section>
+
+            <section class="rs-card" aria-label="Fertilizer annual dashboard">
+              <header class="rs-card-top teal">
+                <div class="rs-card-top-left">
+                  <span>Fertilizer Annual Dashboard</span>
+                </div>
+              </header>
+
+              <div class="rs-annual">
+                <div class="annual-head">
+                  <div class="annual-title">Regional Demand</div>
+                  <div class="annual-tabs" role="tablist" aria-label="Dashboard tabs">
+                    <button class="tab active" type="button" role="tab" aria-selected="true">
+                      Annual Overview
+                    </button>
+                    <button class="tab" type="button" role="tab" aria-selected="false">
+                      Detailed Breakdown
+                    </button>
+                  </div>
+                </div>
+
+                <div class="annual-cards" aria-label="Demand cards">
+                  <article class="demand-card total">
+                    <div class="demand-label">TOTAL DEMAND</div>
+                    <div class="demand-big">160,000 Qt</div>
+                    <div class="demand-lines">
+                      <div class="dline"><span>DAP</span><strong>88,000</strong></div>
+                      <div class="dline"><span>UREA</span><strong>72,000</strong></div>
+                    </div>
+                  </article>
+
+                  <article class="demand-card">
+                    <div class="demand-top">LOT 1</div>
+                    <div class="demand-big small">10,949 Qt</div>
+                    <div class="demand-lines">
+                      <div class="dline"><span>DAP</span><strong>5,440</strong></div>
+                      <div class="dline"><span>UREA</span><strong>5,509</strong></div>
+                    </div>
+                  </article>
+
+                  <article class="demand-card">
+                    <div class="demand-top">LOT 1</div>
+                    <div class="demand-big small">7,317 Qt</div>
+                    <div class="demand-lines">
+                      <div class="dline"><span>DAP</span><strong>5,400</strong></div>
+                      <div class="dline"><span>UREA</span><strong>1,879</strong></div>
+                    </div>
+                  </article>
+
+                  <article class="demand-card">
+                    <div class="demand-top">LOT 2</div>
+                    <div class="demand-big small">7,877 Qt</div>
+                    <div class="demand-lines">
+                      <div class="dline"><span>DAP</span><strong>3,000</strong></div>
+                      <div class="dline"><span>UREA</span><strong>2,877</strong></div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="rs-card" aria-label="Allocation to unions">
+              <header class="rs-card-top teal">
+                <div class="rs-card-top-left">
+                  <span>Allocation to Unions in the region</span>
+                </div>
+              </header>
+
+              <div class="rs-alloc">
+                <div class="alloc-head">
+                  <div class="alloc-sub">Fertilizer Demand by Union</div>
+                  <div class="alloc-search">
+                    <input
+                      id="unionSearch"
+                      type="search"
+                      placeholder="Search union or fertilizer"
+                      aria-label="Search union or fertilizer"
+                    />
+                  </div>
+                </div>
+
+                <div class="rs-table-wrap" role="region" aria-label="Union allocation table" tabindex="0">
+                  <table class="rs-table" id="unionTable">
+                    <thead>
+                      <tr>
+                        <th>Union Name</th>
+                        <th>Fertilizer Type</th>
+                        <th>Amount (T)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>AMBERICO</td>
+                        <td>DAP</td>
+                        <td>5,556.0</td>
+                      </tr>
+                      <tr>
+                        <td>AMBERICO</td>
+                        <td>UREA</td>
+                        <td>3,338.0</td>
+                      </tr>
+                      <tr class="total">
+                        <td><strong>AMBERICO Total</strong></td>
+                        <td></td>
+                        <td class="green"><strong>8,894.0</strong></td>
+                      </tr>
+                      <tr>
+                        <td>ANGACHA</td>
+                        <td>DAP</td>
+                        <td>2,859.0</td>
+                      </tr>
+                      <tr>
+                        <td>ANGACHA</td>
+                        <td>UREA</td>
+                        <td>2,240.0</td>
+                      </tr>
+                      <tr class="total">
+                        <td><strong>ANGACHA Total</strong></td>
+                        <td></td>
+                        <td class="green"><strong>5,099.0</strong></td>
+                      </tr>
+                      <tr>
+                        <td>Admas</td>
+                        <td>DAP</td>
+                        <td>17,942.0</td>
+                      </tr>
+                      <tr>
+                        <td>Admas</td>
+                        <td>UREA</td>
+                        <td>15,280.0</td>
+                      </tr>
+                      <tr class="total">
+                        <td><strong>Admas Total</strong></td>
+                        <td></td>
+                        <td class="green"><strong>33,222.0</strong></td>
+                      </tr>
+                      <tr>
+                        <td>WALTA</td>
+                        <td>DAP</td>
+                        <td>16,995.0</td>
+                      </tr>
+                      <tr>
+                        <td>WALTA</td>
+                        <td>UREA</td>
+                        <td>16,655.0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/region-staff.js"></script>
+  </body>
+</html>

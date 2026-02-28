@@ -1,0 +1,138 @@
+:root {
+  --ap-surface: #d3d3d3;
+  --ap-card: #ffffff;
+  --ap-shadow: rgba(0, 0, 0, 0.12);
+  --ap-border: rgba(0, 0, 0, 0.12);
+  --ap-blue: #1e4f83;
+  --ap-btn: #1e64b5;
+  --ap-head: #f3f3f3;
+}
+
+[data-theme="dark"] {
+  --ap-surface: #1c1f22;
+  --ap-card: #2a2f34;
+  --ap-shadow: rgba(0, 0, 0, 0.35);
+  --ap-border: rgba(255, 255, 255, 0.12);
+  --ap-head: rgba(255, 255, 255, 0.06);
+}
+
+.ap-page {
+  min-height: 0;
+}
+
+.ap-surface {
+  background: var(--ap-surface);
+  border-radius: 26px;
+  padding: 22px 22px 26px;
+  min-height: 0;
+}
+
+.ap-panel {
+  background: var(--ap-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 18px var(--ap-shadow);
+  padding: 16px 16px 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 16px;
+  align-items: start;
+}
+
+.ap-left {
+  min-width: 0;
+}
+
+.ap-btn {
+  border: none;
+  background: var(--ap-btn);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(30, 100, 181, 0.25);
+}
+
+.ap-btn:hover {
+  filter: brightness(0.95);
+}
+
+.ap-table-wrap {
+  margin-top: 12px;
+  border: 1px solid var(--ap-border);
+  border-radius: 12px;
+  overflow: auto;
+}
+
+.ap-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+.ap-table th,
+.ap-table td {
+  border-bottom: 1px solid var(--ap-border);
+  padding: 10px 10px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.ap-table thead th {
+  background: var(--ap-head);
+  font-weight: 900;
+  color: var(--text);
+}
+
+.ap-table thead tr:first-child th {
+  text-align: center;
+}
+
+.ap-empty td {
+  text-align: center;
+  padding: 18px 10px;
+  color: var(--muted);
+}
+
+.ap-right {
+  background: var(--ap-card);
+  border-radius: 14px;
+  box-shadow: 0 10px 18px var(--ap-shadow);
+  border: 1px solid var(--ap-border);
+  overflow: hidden;
+}
+
+.ap-info-head {
+  background: var(--ap-blue);
+  color: #ffffff;
+  padding: 12px 14px;
+  font-family: "Noto Serif Ethiopic", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.ap-info-body {
+  padding: 14px 14px 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.ap-para {
+  font-family: "Noto Serif Ethiopic", serif;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+@media (max-width: 1080px) {
+  .ap-panel {
+    grid-template-columns: 1fr;
+  }
+}

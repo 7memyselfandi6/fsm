@@ -1,0 +1,126 @@
+:root {
+  --ds-surface: #d3d3d3;
+  --ds-card: #ffffff;
+  --ds-shadow: rgba(0, 0, 0, 0.18);
+  --ds-line: rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="dark"] {
+  --ds-surface: #1c1f22;
+  --ds-card: #2a2f34;
+  --ds-shadow: rgba(0, 0, 0, 0.35);
+  --ds-line: rgba(255, 255, 255, 0.14);
+}
+
+.ds-page {
+  min-height: 0;
+}
+
+.ds-surface {
+  background: var(--ds-surface);
+  border-radius: 26px;
+  padding: 26px 22px 30px;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+}
+
+.ds-card {
+  width: min(980px, 100%);
+  background: var(--ds-card);
+  border-radius: 16px;
+  box-shadow: 0 12px 22px var(--ds-shadow);
+  padding: 18px 18px 22px;
+}
+
+.ds-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.ds-user {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+[data-theme="dark"] .ds-user svg circle,
+[data-theme="dark"] .ds-user svg path {
+  stroke: rgba(255, 255, 255, 0.7);
+}
+
+.ds-divider {
+  height: 1px;
+  background: var(--ds-line);
+  margin: 14px 0 18px;
+}
+
+.ds-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  color: var(--text);
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.ds-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+  border-top: 1px solid transparent;
+}
+
+.ds-col {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--text);
+  padding: 12px 12px;
+  min-height: 64px;
+  display: grid;
+  align-content: center;
+}
+
+.ds-col.mid,
+.ds-col.right {
+  border-left: 2px solid var(--ds-line);
+}
+
+.ds-col.left {
+  text-align: left;
+}
+
+.ds-col.mid {
+  text-align: center;
+  justify-items: center;
+}
+
+.ds-col.right {
+  text-align: right;
+  justify-items: end;
+}
+
+@media (max-width: 720px) {
+  .ds-cols {
+    grid-template-columns: 1fr;
+  }
+  .ds-col.mid,
+  .ds-col.right {
+    border-left: none;
+    border-top: 2px solid var(--ds-line);
+  }
+  .ds-col.mid,
+  .ds-col.right {
+    text-align: left;
+    justify-items: start;
+  }
+}

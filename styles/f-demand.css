@@ -1,0 +1,371 @@
+:root {
+  --fd-bg: #121212;
+  --fd-panel: rgba(18, 22, 26, 0.75);
+  --fd-panel-2: rgba(18, 22, 26, 0.55);
+  --fd-stroke: rgba(120, 220, 255, 0.25);
+  --fd-stroke-2: rgba(31, 183, 96, 0.25);
+  --fd-text: rgba(255, 255, 255, 0.92);
+  --fd-muted: rgba(255, 255, 255, 0.65);
+  --fd-teal: #2fd2a5;
+  --fd-green: #1fb760;
+  --fd-blue: #33b6ff;
+  --fd-shadow: rgba(0, 0, 0, 0.55);
+}
+
+.fd-page {
+  min-height: 0;
+}
+
+.fd-surface {
+  background: var(--fd-bg);
+  background-image: url("../images/map_ethiopia_pol.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 26px;
+  padding: 14px 14px 16px;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  color: var(--fd-text);
+}
+
+.fd-topbar {
+  background: rgba(55, 128, 142, 0.65);
+  border: 1px solid rgba(120, 220, 255, 0.18);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 10px 18px var(--fd-shadow);
+}
+
+.fd-minihead {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fd-topbar-icons {
+  display: inline-flex;
+  gap: 10px;
+  opacity: 0.9;
+}
+
+.fd-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 6px 10px;
+}
+
+.fd-title {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.fd-search input {
+  width: 260px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.92);
+  outline: none;
+  padding: 0 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #111111;
+}
+
+.fd-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 14px;
+  align-items: start;
+}
+
+.fd-panel {
+  background: var(--fd-panel);
+  border: 1px solid rgba(120, 220, 255, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 12px 22px var(--fd-shadow);
+  overflow: hidden;
+}
+
+.fd-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.fd-panel-title {
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.fd-panel-pill {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: rgba(47, 210, 165, 0.8);
+  color: transparent;
+}
+
+.fd-flow {
+  position: relative;
+  padding: 10px 12px 12px;
+  min-height: 320px;
+}
+
+.fd-flow-map {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.fd-ethiopia {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.fd-map-outline {
+  fill: none;
+  stroke: rgba(51, 182, 255, 0.65);
+  stroke-width: 2;
+}
+
+.fd-link {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.85;
+}
+
+.fd-link-blue {
+  stroke: rgba(51, 182, 255, 0.75);
+}
+
+.fd-link-green {
+  stroke: rgba(47, 210, 165, 0.85);
+}
+
+.fd-boxes {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  z-index: 2;
+}
+
+.fd-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px 10px 10px;
+  min-height: 74px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+
+.fd-box.active {
+  background: rgba(47, 210, 165, 0.22);
+  border-color: rgba(47, 210, 165, 0.45);
+}
+
+.fd-box.chart {
+  grid-column: span 1;
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(120, 220, 255, 0.2);
+}
+
+.fd-box-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.fd-box-sub {
+  margin-top: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.fd-mini-chart {
+  width: 100%;
+  height: 52px;
+  margin-top: 6px;
+  display: block;
+  opacity: 0.95;
+}
+
+.fd-box-corner {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: rgba(47, 210, 165, 0.9);
+  font-weight: 900;
+}
+
+.fd-table-panel {
+  padding: 10px 12px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.fd-subtitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.fd-table-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.fd-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.fd-table th,
+.fd-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 10px;
+  text-align: left;
+}
+
+.fd-table th {
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.fd-table tbody tr:hover td {
+  background: rgba(47, 210, 165, 0.08);
+}
+
+.u {
+  background: rgba(47, 210, 165, 0.25);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 900;
+}
+
+.fd-side {
+  display: grid;
+  gap: 12px;
+}
+
+.fd-side-card {
+  background: var(--fd-panel-2);
+  border: 1px solid rgba(120, 220, 255, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 12px 22px var(--fd-shadow);
+  padding: 10px 10px 10px;
+}
+
+.fd-side-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.fd-side-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.fd-side-sub {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+}
+
+.fd-side-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(47, 210, 165, 0.18);
+  border: 1px solid rgba(47, 210, 165, 0.5);
+  display: grid;
+  place-items: center;
+  color: rgba(47, 210, 165, 0.95);
+  font-weight: 900;
+}
+
+.fd-side-chart {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  display: block;
+}
+
+.fd-axis line {
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 1;
+}
+
+.fd-line {
+  fill: none;
+  stroke: rgba(47, 210, 165, 0.9);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fd-side-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
+
+.fd-live {
+  color: rgba(47, 210, 165, 0.95);
+  font-weight: 900;
+}
+
+.fd-muted {
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 900;
+}
+
+@media (max-width: 1200px) {
+  .fd-grid {
+    grid-template-columns: 1fr;
+  }
+  .fd-search input {
+    width: 220px;
+  }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FMS — Fertilizer Management System</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./components/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="./components/header/header.css" />
+    <link rel="stylesheet" href="./styles/fms.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside id="sidebar-root"></aside>
+      <main class="main-area">
+        <header id="header-root"></header>
+        <section class="fms-page" aria-label="FMS requests table">
+          <div class="fms-surface">
+            <h1 class="fms-heading">
+              ገበሬ ማህበራዊ<br />
+              የማዳበሪያ ጥያቄ ሪፖርት ማስተካከያ እና የማዳበሪያ ጥያቄ ሪፖርት (መሀር)
+            </h1>
+
+            <section class="fms-card" aria-label="Requests table container">
+              <div class="fms-controls">
+                <div class="fms-length">
+                  <label class="fms-label" for="fmsPageSize">Show</label>
+                  <select id="fmsPageSize" class="fms-select" aria-label="Entries per page">
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                  <span class="fms-label">entries</span>
+                </div>
+
+                <div class="fms-search">
+                  <label class="fms-label" for="fmsSearch">Search:</label>
+                  <input id="fmsSearch" class="fms-input" type="search" aria-label="Search" />
+                </div>
+              </div>
+
+              <div class="fms-table-wrap" role="region" aria-label="FMS table region" tabindex="0">
+                <table class="fms-table" aria-label="FMS table">
+                  <thead>
+                    <tr>
+                      <th class="sortable" data-key="sn" scope="col">
+                        SN <span class="sort-ico" aria-hidden="true"></span>
+                      </th>
+                      <th class="sortable" data-key="name" scope="col">
+                        Name <span class="sort-ico" aria-hidden="true"></span>
+                      </th>
+                      <th class="sortable" data-key="woreda" scope="col">
+                        Woreda <span class="sort-ico" aria-hidden="true"></span>
+                      </th>
+                      <th class="sortable" data-key="kebele" scope="col">
+                        Kebele <span class="sort-ico" aria-hidden="true"></span>
+                      </th>
+                      <th class="sortable" data-key="type" scope="col">
+                        F-Type <span class="sort-ico" aria-hidden="true"></span>
+                      </th>
+                      <th class="sortable" data-key="amt" scope="col">
+                        F-Amt (qt) <span class="sort-ico" aria-hidden="true"></span>
+                      </th>
+                      <th class="sortable" data-key="reqid" scope="col">
+                        ReqID <span class="sort-ico" aria-hidden="true"></span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="fmsTbody">
+                    <tr class="empty-row">
+                      <td colspan="7">No data available in table</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr class="total-row">
+                      <td colspan="5" class="total-label">TOTAL</td>
+                      <td class="total-value" id="fmsTotalAmt">0.0</td>
+                      <td></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+
+              <div class="fms-footer" aria-label="Table footer">
+                <div class="fms-info" id="fmsInfo">Showing 0 to 0 of 0 entries</div>
+                <div class="fms-pager" aria-label="Pagination">
+                  <button class="pager-btn" id="fmsPrev" type="button" disabled>Prev</button>
+                  <button class="pager-btn" id="fmsNext" type="button" disabled>Next</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/fms.js"></script>
+  </body>
+</html>
